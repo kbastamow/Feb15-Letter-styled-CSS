@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Homemade+Apple&family=Love+Light&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+:root {
+  --blood: rgb(157, 17, 17);
+}
+
+body {
+  background-color: black;
+}
+
+.letter {
+  margin: 25px auto;
+  padding: 50px;
+  max-width: 600px;
+  text-align: justify;
+  font-family: 'Homemade Apple', "Brush Script MT", cursive;
+  quotes: "\2018" "\2019";
+  border-style: 2px solid black;
+  border-radius: 8px;
+  animation-name: bleed;
+  animation-duration: 25s;
+  animation-fill-mode: forwards; /*To make last keyframe stick*/
+  box-shadow: 2px 5px 5px;
+  background-image: radial-gradient(white, rgb(174, 174, 174));
+}
+
+.address {
+  text-align: right;
+  font-size: 80%;
+}
+
+.address>p>span:first-child {
+  writing-mode: vertical-lr;
+  font-size: 80%;
+}
+
+.address>p>span:last-child {
+  vertical-align: top;
+  font-size: 60%;
+}
+
+p {
+  margin: 10px;
+}
+
+#opening, #closing {
+  word-spacing: 10px;
+  font-weight: bold;
+}
+
+#opening {
+  margin-bottom: 30px;
+}
+
+p.para {
+  line-height: 1.5;
+  hyphens: auto;
+  word-wrap: break-word;
+}
+
+p.para span {
+  font-weight: bold;
+}
+
+p.para::first-letter {
+  font-size: 200%;
+  color: var(--blood);
+  line-height: 0%;
+}
+
+#signature {
+  font-family: 'Love Light', "Brush Script MT", cursive;
+  font-weight: bold;
+  position: relative;
+  right: -180px;
+  margin-bottom: 20px;
+  letter-spacing: -2px;
+  animation-name: fadeIn;
+  animation-duration: 15s;
+  animation-delay: 10s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+
+@keyframes bleed {
+  0% {text-shadow: none;}
+
+  25% {box-shadow: 0px 0px 15px var(--blood);}
+
+  50% {box-shadow: 0px 0px 30px 30px var(--blood);}
+
+  100% {
+      text-shadow: 3px 3px 10px var(--blood);
+      box-shadow: 0px 0px 90px 150px var(--blood);
+  }
+}
+
+@keyframes fadeIn {
+  0% {opacity: 0%;}
+
+  50% {
+      opacity: 100%;
+      font-size: 250%;
+  }
+
+  100% {
+      opacity: 100%;
+      font-size: 180%;
+  }
+}
